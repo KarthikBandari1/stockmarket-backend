@@ -1,1 +1,27 @@
+# Node modules
+node_modules/
+
+# Environment variables
 .env
+
+# SQLite database file
+database.db
+
+# Logs
+*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+dist/
+build/
+
+# Coverage reports
+coverage/
+
+# IDE configuration
+.vscode/
+.idea/
+*.swp
