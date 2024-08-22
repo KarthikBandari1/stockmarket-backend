@@ -3,6 +3,7 @@ const http = require("http");
 const socketIo = require("socket.io");
 const axios = require("axios");
 const db = require("./database");
+require("dotenv").config();
 
 const app = express();
 const server = http.createServer(app);
@@ -13,7 +14,7 @@ const io = socketIo(server, {
   },
 });
 
-const ALPHA_VANTAGE_API_KEY = "6D4MPJE3T7YP8SPN";
+const ALPHA_VANTAGE_API_KEY = process.env.ALPHA_VANTAGE_API_KEY_IS;
 const SYMBOLS = ["AAPL", "GOOGL", "AMZN"];
 
 async function fetchStockData(symbol) {

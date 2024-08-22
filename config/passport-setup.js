@@ -1,16 +1,15 @@
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const sqlite3 = require("sqlite3").verbose();
+require("dotenv").config();
 
-// SQLite database setup
 const db = new sqlite3.Database(":memory:");
 
 passport.use(
   new GoogleStrategy(
     {
-      clientID:
-        "706503932934-hngv4e9oehc4415m99o7rogndoq019hi.apps.googleusercontent.com",
-      clientSecret: "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",
+      clientID: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
       callbackURL: "/auth/google/callback",
     },
     (accessToken, refreshToken, profile, done) => {
